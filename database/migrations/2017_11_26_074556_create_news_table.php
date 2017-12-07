@@ -22,6 +22,8 @@ class CreateNewsTable extends Migration
             $table->integer('categoryId');
             $table->string('image');
         });
+
+        
     }
 
     /**

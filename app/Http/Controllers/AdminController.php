@@ -1,10 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\News;
+use App\Category;
+//use App\User;
 
 use Illuminate\Http\Request;
-use App\News;
-use App\User;
+use Illuminate\Support\Facades\Storage;
 
 class AdminController extends Controller
 {
@@ -15,8 +17,9 @@ class AdminController extends Controller
      */
     public function index()
     {
-        // echo"The index function";
-        return view('admin.index');
+        $user_id=auth()->user()->id;
+        $news=News::where('authId',$user_id)->get();    
+        return view('admin.index')->with('news',$news);
     }
 
     /**
@@ -26,12 +29,9 @@ class AdminController extends Controller
      */
     public function create()
     {
-             // return view('admin.createNew');
-            // echo"function Create()";
-           return view('admin.create');
-
+        $cats= Category::all();
+        return view('admin.create')->with('cats',$cats);
     }
-
 
     /**
      * Store a newly created resource in storage.
@@ -42,20 +42,20 @@ class AdminController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,['title'=>'required','body'=>'required',
-                'cover_image'=>'image|nullable|max:2048'
+                'news_image'=>'image|nullable|max:2048'
             ]);
         //handle File Upload
-        if($request->hasFile('cover_image')){
+        if($request->hasFile('news_image')){
             //Get filename with extension
-            $filenameWithExt = $request->file('cover_image')->getClientOriginalName();
+            $filenameWithExt = $request->file('news_image')->getClientOriginalName();
             //get just filename
             $filename = pathinfo($filenameWithExt,PATHINFO_FILENAME);
             //get just Ext
-            $extension = $request->file('cover_image')->getClientOriginalExtension();
+            $extension = $request->file('news_image')->getClientOriginalExtension();
             //filename to store
             $fileNameToStore = $filename.'_'.time().'.'.$extension;
             //upload Image
-            $path = $request->file('cover_image')->storeAs('public/cover_images',$fileNameToStore);
+            $path = $request->file('news_image')->storeAs('public/news_images',$fileNameToStore);
         }
         else {
             $fileNameToStore = 'noimage.jpg';
@@ -67,8 +67,8 @@ class AdminController extends Controller
         $news=new News;
         $news->title=$request->input('title');
         $news->description=$request->input('body');
-        $news->authId=1;
-        $news->categoryId=1;
+        $news->authId=auth()->user()->id;
+        $news->category_id=$request->input('category');
         $news->image=$fileNameToStore;
         $news->save();
         return redirect('/admin')->with('success','your article has been uploaded');
@@ -83,7 +83,8 @@ class AdminController extends Controller
      */
     public function show($id)
     {
-       return view('admin.create');
+        $news=News::find($id);
+        return view('admin.show')->with('news',$news);
     }
 
     /**
@@ -94,8 +95,14 @@ class AdminController extends Controller
      */
     public function edit($id)
     {
-        //
+        $news=News::find($id);
+        if(auth()->user()->id!= $news->authId){
+           return redirect('/home')->with('error','Unauthorized Page');
+        }
+        return view('admin.edit')->with('news',$news);
     }
+
+    
 
     /**
      * Update the specified resource in storage.
@@ -106,7 +113,34 @@ class AdminController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+       $this->validate($request,['title'=>'required','body'=>'required',
+                'news_image'=>'image|nullable|max:2048'
+            ]);
+        //handle File Upload
+        if($request->hasFile('news_image')){
+            //Get filename with extension
+            $filenameWithExt = $request->file('news_image')->getClientOriginalName();
+            //get just filename
+            $filename = pathinfo($filenameWithExt,PATHINFO_FILENAME);
+            //get just Ext
+            $extension = $request->file('news_image')->getClientOriginalExtension();
+            //filename to store
+            $fileNameToStore = $filename.'_'.time().'.'.$extension;
+            //upload Image
+            $path = $request->file('news_image')->storeAs('public/news_images',$fileNameToStore);
+        }
+
+
+        $news=News::find($id);
+        $news->title=$request->input('title');
+        $news->description=$request->input('body');
+        $news->authId=auth()->user()->id;
+        $news->categoryId=1;
+        if($request->hasFile('news_image')){
+            $news->image=$fileNameToStore;
+        }
+        $news->save();
+        return redirect('/admin')->with('success','your article has been edited');   
     }
 
     /**
@@ -117,6 +151,15 @@ class AdminController extends Controller
      */
     public function destroy($id)
     {
-        //
+        
+        $post=News::find($id);
+        if(auth()->user()->id != $post->authId){
+            return redirect('/home')->with('error','Unauthorized Page');
+        }
+        if($post->cover_image!='noimage.jpg'){
+            Storage::delete('public/news_images/'.$post->image);
+        }
+        $post->delete();
+        return redirect('/admin')->with('success','News deleted Successfully');
     }
 }
