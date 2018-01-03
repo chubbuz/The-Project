@@ -179,7 +179,7 @@ desired effect
               <!-- The user image in the navbar-->
               <img src={{asset("myAdmin/dist/img/user2-160x160.jpg")}} class="user-image" alt="User Image">
               <!-- hidden-xs hides the username on small devices so only the image appears. -->
-              <span class="hidden-xs">Alexander Pierce</span>
+              <span class="hidden-xs">{{Auth::user()->name}}</span>
             </a>
             <ul class="dropdown-menu">
               <!-- The user image in the menu -->
@@ -187,7 +187,7 @@ desired effect
                 <img src={{asset("myAdmin/dist/img/user2-160x160.jpg")}} class="img-circle" alt="User Image">
 
                 <p>
-                  Alexander Pierce - Web Developer
+                  {{Auth::user()->name}} - Web Developer
                   <small>Member since Nov. 2012</small>
                 </p>
               </li>
@@ -212,7 +212,7 @@ desired effect
                   <a href="#" class="btn btn-default btn-flat">Profile</a>
                 </div>
                 <div class="pull-right">
-                  <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                  <a href="logout" class="btn btn-default btn-flat">Sign out</a>
                 </div>
               </li>
             </ul>
@@ -237,7 +237,7 @@ desired effect
           <img src={{asset("myAdmin/dist/img/user2-160x160.jpg")}} class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>Alexander Pierce</p>
+          <p>{{Auth::user()->name}}</p>
           <!-- Status -->
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
@@ -264,7 +264,7 @@ desired effect
         <li><a href="#"><i class="fa fa-list"></i> <span>Categories</span></a></li>
         <li><a href="#"><i class="fa fa-file-video-o"></i> <span>Medias</span></a></li>
         <li><a href="#"><i class="fa fa-users"></i> <span>Comments</span></a></li>
-        <li><a href="#"><i class="fa fa-link"></i> <span>Another Link</span></a></li>
+        <li><a href="{{ url('/admin-all') }}"><i class="fa fa-id-card"></i> <span>All news</span></a></li>
         <li class="treeview">
           <a href="#"><i class="fa fa-link"></i> <span>Multilevel</span>
             <span class="pull-right-container">

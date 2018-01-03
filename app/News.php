@@ -11,5 +11,12 @@ class News extends Model
         return $this->belongsTo('App\Category');
     }
 
+    public function author()
+    {
+        return $this->belongsTo('App\User');
+    }
+
+    
+
     
 }

@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 use App\News;
+use App\Todays;
 use App\Category;
+
 //use App\User;
 
 use Illuminate\Http\Request;
@@ -18,7 +20,8 @@ class AdminController extends Controller
     public function index()
     {
         $user_id=auth()->user()->id;
-        $news=News::where('authId',$user_id)->get();    
+        $news=News::where('author_id',$user_id)->get(); 
+       
         return view('admin.index')->with('news',$news);
     }
 
@@ -32,6 +35,16 @@ class AdminController extends Controller
         $cats= Category::all();
         return view('admin.create')->with('cats',$cats);
     }
+
+    public function showAll()
+    {
+
+        $news=News::orderBy('created_at','desc')->paginate(5);
+         $todays=Todays::select('news_id')->get();
+        return view('admin.allCollection')->with('news',$news)->with('todays',$todays);
+    }
+
+    
 
     /**
      * Store a newly created resource in storage.
@@ -67,7 +80,7 @@ class AdminController extends Controller
         $news=new News;
         $news->title=$request->input('title');
         $news->description=$request->input('body');
-        $news->authId=auth()->user()->id;
+        $news->author_id=auth()->user()->id;
         $news->category_id=$request->input('category');
         $news->image=$fileNameToStore;
         $news->save();
@@ -83,6 +96,7 @@ class AdminController extends Controller
      */
     public function show($id)
     {
+
         $news=News::find($id);
         return view('admin.show')->with('news',$news);
     }
@@ -96,7 +110,7 @@ class AdminController extends Controller
     public function edit($id)
     {
         $news=News::find($id);
-        if(auth()->user()->id!= $news->authId){
+        if(auth()->user()->id!= $news->author_id){
            return redirect('/home')->with('error','Unauthorized Page');
         }
         return view('admin.edit')->with('news',$news);
@@ -134,7 +148,7 @@ class AdminController extends Controller
         $news=News::find($id);
         $news->title=$request->input('title');
         $news->description=$request->input('body');
-        $news->authId=auth()->user()->id;
+        $news->author_id=auth()->user()->id;
         $news->categoryId=1;
         if($request->hasFile('news_image')){
             $news->image=$fileNameToStore;
@@ -153,7 +167,7 @@ class AdminController extends Controller
     {
         
         $post=News::find($id);
-        if(auth()->user()->id != $post->authId){
+        if(auth()->user()->id != $post->author_id){
             return redirect('/home')->with('error','Unauthorized Page');
         }
         if($post->cover_image!='noimage.jpg'){

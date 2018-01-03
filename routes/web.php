@@ -16,10 +16,13 @@ Route::get('/', function () {
     return view('front.index');
 
 });
+
 Route::resource('admin','AdminController');
+
 Auth::routes();
 
-// Route::get('/admin', 'HomeController@index');
+
+
 Route::get('/home',function(){
 	return view('home');
 });
@@ -29,9 +32,11 @@ Route::get('/welcome',function(){
 });
 
 
-Route::get('admin/category',function(){
-	return view('admin.category');
-});
+Route::get('admin-all','AdminController@showAll');
+Route::resource('today','TodaysController');
+
+
+Route::get('logout','Auth\LoginController@logout');
 
 
 Route::get('/try',function(){

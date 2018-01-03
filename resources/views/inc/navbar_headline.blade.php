@@ -1,9 +1,9 @@
   <div class="container-fluid">
     <div class="jumbotron">
       <div class="row">
-              <div class="col-sm-4 col-md-4 col-lg-4" style="background-color: red">
-                <img src="<?= asset('images/logo.jpg') ?>" alt="logo"" class="img-responsive" alt="Image" style="width:20%;height:50%;">
-                logo herer
+              <div class="col-sm-4 col-md-4 col-lg-4" style="background-color:light-gray">
+                <img src="images/B-logo.jpg" class="img-responsive" alt="Image" >
+                logo here
               </div>
               <div class="col-sm-8 col-md-8 col-lg-8" style="background-color: green">
                 <img src="/storage/news_images/blog_1511976659.jpg" class="img-responsive" alt="Image" style="height:50%;width:20%;">
@@ -17,17 +17,17 @@
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav main_nav">
               <li><a href="index.html"><span class="fa fa-home desktop-home"></span><span class="mobile-show"></span></a></li>
-              <li><a href="#">Special</a></li>
-              <li><a href="#">Politics</a></li>
-              <li><a href="#">Economy</a></li>
-              <li><a href="#">Sports</a></li>
-              <li><a href="#">Interview</a></li>
-              <li><a href="#">Country</a></li>
-              <li><a href="#">Literature</a></li>
-              <li><a href="#">Blog</a></li>
-              <li><a href="">Abroad</a></li>
+              <li><a href="#">ताजा खबर</a></li>
+              <li><a href="#">राजनिति</a></li>
+              <li><a href="#">समाज</a></li>
+              <li><a href="#">बिदेश</a></li>
+              <li><a href="#">साहित्य</a></li>
+              <li><a href="#">बिचार</a></li>
+              <li><a href="#">खेल्कुद</a></li>
+              <li><a href="#">बिबिध</a></li>
+              <li><a href="">देश</a></li>
               <li class="dropdown">
-            	<a class="dropdown-toggle" data-toggle="dropdown" href="#">Gallery
+            	<a class="dropdown-toggle" data-toggle="dropdown" href="#">ग्यालरि
             	<span class="caret"></span></a>
             	<ul class="dropdown-menu">
     	          <li><a href="#">Cartoon</a></li>
@@ -42,7 +42,7 @@
   <section id="newsSection">
     <div class="row">
       <div class="col-sm- 12 col-lg-12 col-md-12">
-        <div class="latest_newsarea"> <span>Head Lines</span>
+        <div class="latest_newsarea"> <span>तात्तातो</span>
           <ul id="ticker01" class="news_sticker">
             <li><a href="#"><img src="images/news_thumbnail3.jpg" alt="">My First News Item</a></li>
             <li><a href="#"><img src="images/news_thumbnail3.jpg" alt="">My Second News Item</a></li>
