@@ -32,6 +32,7 @@
            	<div class="form-group">
            		{{Form::label('body','enter the full story')}}
            		{{Form::textarea('body','',['class' => 'form-control','id'=>'article-ckeditor','placeholder'=>'enter your news here']  )}}
+              <!-- 'id'=>'article-ckeditor' -->
            	</div>
 
             <div class="form-group">
@@ -63,6 +64,8 @@
 
 @section('content-script')
   <script src={{asset("/vendor/unisharp/laravel-ckeditor/ckeditor.js")}}></script>
-  <script>CKEDITOR.replace('article-ckeditor');</script>
+   <!-- 
+   <script>CKEDITOR.replace('article-ckeditor');</script>
+    -->
 @endsection
  

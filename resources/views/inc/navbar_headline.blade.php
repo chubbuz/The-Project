@@ -2,11 +2,11 @@
     <div class="jumbotron">
       <div class="row">
               <div class="col-sm-4 col-md-4 col-lg-4" style="background-color:light-gray">
-                <img src="images/B-logo.jpg" class="img-responsive" alt="Image" >
-                logo here
+                <img src="{{asset('storage/cover_images/logo.png' )}}" class="img-responsive" alt="Logo here" style="height:30%" >
+                
               </div>
-              <div class="col-sm-8 col-md-8 col-lg-8" style="background-color: green">
-                <img src="/storage/news_images/blog_1511976659.jpg" class="img-responsive" alt="Image" style="height:50%;width:20%;">
+              <div class="col-sm-8 col-md-8 col-lg-8" style="background-color: pink">
+                <img src="/storage/news_images/blog_1511976659.jpg" class="img-responsive" alt="1st advertisement is displayed here">
               </div>
             </div>      
     </div>
@@ -68,5 +68,10 @@
           </div>
         </div>
       </div>
+
     </div>
+
+    <div style="background-color:pink;">
+    <h1>2nd advertisement here</h1>
+    <div>
   </section>

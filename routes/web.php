@@ -11,11 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-
-    return view('front.index');
-
-});
+Route::get('/', 'FrontController@index');
+Route::get('/read/{id}','FrontController@show');
 
 Route::resource('admin','AdminController');
 
@@ -34,14 +31,4 @@ Route::get('/welcome',function(){
 
 Route::get('admin-all','AdminController@showAll');
 Route::resource('today','TodaysController');
-
-
 Route::get('logout','Auth\LoginController@logout');
-
-
-Route::get('/try',function(){
-	return view('front.try');
-});
-Route::get('/test',function(){
-	return view('layouts.test_design');
-});

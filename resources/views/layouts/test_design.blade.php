@@ -22,10 +22,11 @@
 </style>
 </head>
 <body>
-	@include('inc.navbar_headline')<br>
+		@include('inc.navbar_headline')
 	
 	<div class="container">
         @yield('main_content') 
+
         </div>
 
 

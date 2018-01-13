@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "5264ccdc8c0f936d233aec1239c30308",
+    "content-hash": "38cc036a0096b486df3a81cb50d0a487",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -2585,16 +2585,16 @@
         },
         {
             "name": "unisharp/laravel-ckeditor",
-            "version": "4.6.2",
+            "version": "4.7.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/UniSharp/laravel-ckeditor.git",
-                "reference": "39a62df1383671327ac908177c7a3b68ea95be6e"
+                "reference": "5c75f3f9128ec8567955913074795deee5869c5c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/UniSharp/laravel-ckeditor/zipball/39a62df1383671327ac908177c7a3b68ea95be6e",
-                "reference": "39a62df1383671327ac908177c7a3b68ea95be6e",
+                "url": "https://api.github.com/repos/UniSharp/laravel-ckeditor/zipball/5c75f3f9128ec8567955913074795deee5869c5c",
+                "reference": "5c75f3f9128ec8567955913074795deee5869c5c",
                 "shasum": ""
             },
             "require": {
@@ -2635,7 +2635,7 @@
                 "text",
                 "wysiwyg"
             ],
-            "time": "2017-02-03T17:31:13+00:00"
+            "time": "2017-11-01T04:33:40+00:00"
         },
         {
             "name": "vlucas/phpdotenv",
