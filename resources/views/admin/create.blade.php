@@ -20,7 +20,7 @@
 
   <div class="row">
         <div class="col-xs-10"> 
-             <h2>Create your News here<h2>
+             <h2>Create your News here</h2>
 
           	{!! Form::open(['action' => 'AdminController@store','method'=>'POST','enctype'=>'multipart/form-data']) !!}
            	<div class="form-group">

@@ -264,7 +264,7 @@ desired effect
         <li><a href="#"><i class="fa fa-list"></i> <span>Categories</span></a></li>
         <li><a href="#"><i class="fa fa-file-video-o"></i> <span>Medias</span></a></li>
         <li><a href="#"><i class="fa fa-users"></i> <span>Comments</span></a></li>
-        <li><a href="{{ url('/admin-all') }}"><i class="fa fa-id-card"></i> <span>All news</span></a></li>
+        <li><a href="{{ url('/admin-all') }}"><i class="fa fa-id-card"></i> <span>Today</span></a></li>
         <li class="treeview">
           <a href="#"><i class="fa fa-link"></i> <span>Multilevel</span>
             <span class="pull-right-container">

@@ -20,7 +20,7 @@ class AdminController extends Controller
     public function index()
     {
         $user_id=auth()->user()->id;
-        $news=News::where('author_id',$user_id)->get(); 
+        $news=News::where('author_id',$user_id)->orderBy('created_at','desc')->get(); 
        
         return view('admin.index')->with('news',$news);
     }
@@ -110,10 +110,13 @@ class AdminController extends Controller
     public function edit($id)
     {
         $news=News::find($id);
+        $currCat=$news->category->id;
+        $cats= Category::all();
+
         if(auth()->user()->id!= $news->author_id){
            return redirect('/home')->with('error','Unauthorized Page');
         }
-        return view('admin.edit')->with('news',$news);
+        return view('admin.edit')->with('news',$news)->with('cats',$cats)->with('currCat',$currCat);
     }
 
     
@@ -149,7 +152,7 @@ class AdminController extends Controller
         $news->title=$request->input('title');
         $news->description=$request->input('body');
         $news->author_id=auth()->user()->id;
-        $news->categoryId=1;
+        $news->category_id=$request->input('category');
         if($request->hasFile('news_image')){
             $news->image=$fileNameToStore;
         }

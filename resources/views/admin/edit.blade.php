@@ -1,10 +1,11 @@
 @extends('layouts.admin_template')
 @section('content')
 
-	<h2>Edit your News here<h2>
+	<h2>Edit your News here</h2>
 <!-- 'action' => 'AdminController@store','method'=>'POST' -->
 <!-- 'action' => 'AdminController@store','method'=>'POST' -->
 <!-- 'action' => 'AdminController@store','method'=>'POST' -->
+    <div class="col-xs-10"> 
 		{!! Form::open(['action' => ['AdminController@update',$news->id],'method'=>'POST','enctype'=>'multipart/form-data']) !!}
     	 	<div class="form-group">
     	 		{{Form::label('title','News Title')}}
@@ -13,7 +14,7 @@
     	 	</div>
     	 	<div class="row">
     	 		<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-    	 			<img src="/storage/news_images/{{$news->image}}" style="height:30%;width:30%">
+    	 			<img src="{{asset('storage/news_images/'.$news->image )}}  " style="height:30%;width:30%">
     	 		</div>
     	 		<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
     	 			
@@ -32,6 +33,25 @@
         {{Form::hidden('_method','PUT')}}
 
     	 	{{Form::submit('Submit',['class'=>'btn btn-primary'])}}
+        </div>
+
+
+        <div class="col-xs-2">
+        <div class ="container">
+          <h2>categories</h2>
+
+          @foreach($cats as $cat)
+            @if($cat->id==$currCat)
+                {{ Form::radio('category',$cat->id,true)}} {{$cat->id }}).{{$cat->name}}
+            @else
+                {{ Form::radio('category',$cat->id) }} {{$cat->id }}).{{$cat->name}}
+            
+            @endif  
+            <br> 
+
+          @endforeach
+        </div>
+      </div>
 		{!! Form::close() !!}
 @endsection
 
