@@ -47,7 +47,7 @@
                   <!-- src="{asset('storage/news_images/'.$news->image )}}" -->
                   <figure class="bsbig_fig"> <a href="read/{{$news->id}}" class="featured_img"> <img src="{{asset('storage/news_images/'.$news->image )}}" > <span class="overlay"></span> </a>
                     <figcaption> <a href="read/{{$news->id}}">{{$news->title }} </figcaption>
-                    <p>Nunc tincidunt, elit non cursus euismod, lacus augue ornare metus, egestas imperdiet nulla nisl quis mauris. Suspendisse a phare...</p>
+                    <p>{{ str_limit($news->descp,100)}}</p>
                   </figure>
                 </li>
                   <?php break; ?>
@@ -132,7 +132,7 @@
                   <li>
                     <figure class="bsbig_fig wow fadeInDown"> <a href="read/{{$news->id}}" class="featured_img"> <img alt="" src="{{asset('storage/news_images/'.$news->image )}}"> <span class="overlay"></span> </a>
                       <figcaption> <a href="read/{{$news->id}}">{{$news->title}}</a> </figcaption>
-                      <p>Nunc tincidunt, elit non cursus euismod, lacus augue ornare metus, egestas imperdiet nulla nisl quis mauris. Suspendisse a phare...</p>
+                    <p>{{ str_limit($news->descp,100)}}</p>
                     </figure>
                   </li>
                   <?php break; ?>
@@ -264,11 +264,32 @@
 
           <div class="single_sidebar wow fadeInDown">
             <div style="background-color:pink">
-            <h1>next advertisement to be displayed here</h1>
-          </div>
+              <h1>next advertisement to be displayed here</h1>
+            </div>
+
+            <div class="sdfsdfdsllol"style="background-color:pink">
+              <h1>next advertisement to be displayed here</h1>
+            </div>
+
 
             <h2><span>Cartoon</span></h2>
             <a class="sideAdd" href="#"><img src="images/add_img.jpg" alt="Cartoon Image"></a> 
+            <!-- folllwing line to be deleted -->
+            <h2><span></span></h2>
+
+            <div class="sdfsdfdsllol"style="background-color:pink">
+              <h1>next advertisement to be displayed here</h1>
+            </div>
+
+            <div class="sdfsdfdsllol"style="background-color:pink">
+              <h1>next advertisement to be displayed here</h1>
+            </div>
+
+            <div class="sdfsdfdsllol"style="background-color:pink">
+              <h1>next advertisement to be displayed here</h1>
+            </div>
+
+
 
           </div>
 
