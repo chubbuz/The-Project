@@ -11,8 +11,9 @@
               	 </div>
               		<a href ="read/{{$news->id}}"><h1 style="text-align:center;" >{{$news->title}}</h1> </a>
 
-
-	        		<img src="{{asset('storage/news_images/'.$news->image )}}"  alt="{{$news->image}} Not Found" style="display:block;margin-left:auto;margin-right:auto;"> 
+              <div class="col-sm-12 col-md-12 col-lg-12">
+	        		 <img src="{{asset('storage/news_images/'.$news->image )}}"  alt="{{$news->image}} Not Found" style="display:block;margin-left:auto;margin-right:auto;"> 
+            </div>
                 <!-- <p>{{$news->descp}}</p> -->
 	           </div  >
               <!-- <div class="col-sm-4 col-md-4 col-lg-4" style="background-color:black;">
@@ -23,16 +24,20 @@
               </div> -->
               
               <div style="margin-top:10px">&nbsp</div>
+              the advertisemnt area
+              <img src="{{asset('storage/news_images/xavi.png' )}}" alt ="adv area">
+              area closed
               <div style="background-color:pink;">
-              <h1>Next adverstiment is displayed here</h1>
+                
+                <h1>Next adverstiment is displayed here</h1>
               
-           </div>
+            </div>
                 <div style="margin-bottom:10px;">&nbsp</div>
     @endif
   @endforeach
 
 
-  <section id="contentSection">
+  <section idc="ontentSection">
     <div class="row">
       <div class="col-lg-8 col-md-8 col-sm-8">
         <div class="left_content">
@@ -195,39 +200,43 @@
             </ul>
           </div>
           <div class="single_post_content">
-            <h2><span>Games</span></h2>
+            <h2><span> अर्थ economy</span></h2>
             <div class="single_post_content_left">
               <ul class="business_catgnav">
+
+                @foreach($newsArray as $news)
+                  @if($news->category=='other')
                 <li>
-                  <figure class="bsbig_fig  wow fadeInDown"> <a class="featured_img" href="read/{{$news->id}}"> <img src="{asset('storage/news_images/'.$news->image )}}" alt=""> <span class="overlay"></span> </a>
-                    <figcaption> <a href="read/{{$news->id}}">Proin rhoncus consequat nisl eu ornare mauris</a> </figcaption>
-                    <p>Nunc tincidunt, elit non cursus euismod, lacus augue ornare metus, egestas imperdiet nulla nisl quis mauris. Suspendisse a phare...</p>
+                  <figure class="bsbig_fig"> <a href="read/{{$news->id}}" class="featured_img"> <img src="{{asset('storage/news_images/'.$news->image )}}" > <span class="overlay"></span> </a>
+                    <figcaption> <a href="read/{{$news->id}}">{{$news->title }} </figcaption>
+                    <p>{{ str_limit($news->descp,100)}}</p>
                   </figure>
                 </li>
+                  <?php break; ?>
+                 @endif
+                @endforeach
               </ul>
             </div>
             <div class="single_post_content_right">
               <ul class="spost_nav">
+
+                
+                <?php $isFirst=true; $count=0; ?>
+                @foreach($newsArray as $news)
+
+                  @if($news->category=='other'&&$isFirst)
+                    <?php $isFirst=false;?>
+                  @elseif($news->category=='other')
                 <li>
-                  <div class="media wow fadeInDown"> <a href="read/{{$news->id}}" class="media-left"> <img alt="" src="images/post_img1.jpg"> </a>
-                    <div class="media-body"> <a href="read/{{$news->id}}" class="catg_title"> Aliquam malesuada diam eget turpis varius 1</a> </div>
+                  <div class="media wow fadeInDown"> <a href="read/{{$news->id}}" class="media-left"> <img alt="" src="{{asset('storage/news_images/'.$news->image )}}"> </a>
+                    <div class="media-body"> <a href="read/{{$news->id}}" class="catg_title"> {{$news->title}}</a> </div>
                   </div>
                 </li>
-                <li>
-                  <div class="media wow fadeInDown"> <a href="read/{{$news->id}}" class="media-left"> <img alt="" src="images/post_img2.jpg"> </a>
-                    <div class="media-body"> <a href="read/{{$news->id}}" class="catg_title"> Aliquam malesuada diam eget turpis varius 2</a> </div>
-                  </div>
-                </li>
-                <li>
-                  <div class="media wow fadeInDown"> <a href="read/{{$news->id}}" class="media-left"> <img alt="" src="images/post_img1.jpg"> </a>
-                    <div class="media-body"> <a href="read/{{$news->id}}" class="catg_title"> Aliquam malesuada diam eget turpis varius 3</a> </div>
-                  </div>
-                </li>
-                <li>
-                  <div class="media wow fadeInDown"> <a href="read/{{$news->id}}" class="media-left"> <img alt="" src="images/post_img2.jpg"> </a>
-                    <div class="media-body"> <a href="read/{{$news->id}}" class="catg_title"> Aliquam malesuada diam eget turpis varius 4</a> </div>
-                  </div>
-                </li>
+
+                <?php if(++$count>=4)break;?>
+                  @endif
+                @endforeach
+
               </ul>
             </div>
           </div>
@@ -291,6 +300,26 @@
 
 
 
+          </div>
+
+
+          <div class="single_sidebar">
+            <h2><span>सम्पाक्दिय Sports</span></h2>
+            <ul class="spost_nav">
+
+              <?php $count=0;?>
+              @foreach($newsArray as $news)
+                  @if($news->category=='sports')
+              <li>
+                <div class="media wow fadeInDown"> <a href="read/{{$news->id}}" class="media-left"> <img alt="" src="{{asset('storage/news_images/'.$news->image )}}"> </a>
+                  <div class="media-body"> <a href="read/{{$news->id}}" class="catg_title"> {{$news->title}}</div>
+                </div>
+              </li>
+                <?php if(++$count>=4)break;?>
+                @endif
+              @endforeach
+              
+            </ul>
           </div>
 
 

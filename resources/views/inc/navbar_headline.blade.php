@@ -6,7 +6,7 @@
                 
               </div>
               <div class="col-sm-8 col-md-8 col-lg-8" style="background-color: pink">
-                <img src="/storage/news_images/blog_1511976659.jpg" class="img-responsive" alt="1st advertisement is displayed here">
+                <h1>1st advertisement here</h1>
               </div>
             </div>      
     </div>

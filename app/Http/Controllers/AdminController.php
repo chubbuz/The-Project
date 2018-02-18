@@ -55,7 +55,7 @@ class AdminController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,['title'=>'required','body'=>'required',
-                'news_image'=>'image|nullable|max:2048'
+                'news_image'=>'image|nullable|max:2048','category'=>'required'
             ]);
         //handle File Upload
         if($request->hasFile('news_image')){

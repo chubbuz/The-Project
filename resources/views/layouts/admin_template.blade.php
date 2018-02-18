@@ -260,6 +260,7 @@ desired effect
         <li class="header">HEADER</li>
         <!-- Optionally, you can add icons to the links -->
         <li class="active"><a href="{{ url('/admin') }}"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
+        <li><a href="{{ url('/admin-adv') }}"><i class="fa fa-dollar"></i> <span>Advertisemnt</span></a></li>
         <li ><a href="{{ url('/admin/create') }}"><i class="fa fa-edit"></i> <span>Add New Post</span></a></li>
         <li><a href="#"><i class="fa fa-list"></i> <span>Categories</span></a></li>
         <li><a href="#"><i class="fa fa-file-video-o"></i> <span>Medias</span></a></li>
