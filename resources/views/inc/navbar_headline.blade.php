@@ -6,7 +6,8 @@
                 
               </div>
               <div class="col-sm-8 col-md-8 col-lg-8" style="background-color: pink">
-                <h1>1st advertisement here</h1>
+                <img src="{{asset('storage/adv_images/'.$adAll->AlongLogo() )}}" alt ="adv area" class="img-responsive center-block">
+                <!-- <h1>1st advertisement here</h1> -->
               </div>
             </div>      
     </div>
@@ -71,7 +72,8 @@
 
     </div>
 
-    <div style="background-color:pink;">
-    <h1>2nd advertisement here</h1>
-    <div>
+     <div class="col-sm-8 col-md-8 col-lg-8" style="background-color: pink">
+                <img src="{{asset('storage/adv_images/'.$adAll->DownNavBar() )}}" alt ="adv area" class="img-responsive center-block">
+                <!-- <h1>1st advertisement here</h1> -->
+              </div>
   </section>

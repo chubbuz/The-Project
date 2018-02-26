@@ -12,7 +12,7 @@
               		<a href ="read/{{$news->id}}"><h1 style="text-align:center;" >{{$news->title}}</h1> </a>
 
               <div class="col-sm-12 col-md-12 col-lg-12">
-	        		 <img src="{{asset('storage/news_images/'.$news->image )}}"  alt="{{$news->image}} Not Found" style="display:block;margin-left:auto;margin-right:auto;"> 
+	        		 <img src="{{asset('storage/news_images/'.$news->image )}}"  alt="{{$news->image}} Not Found" style="display:block;margin-left:auto;margin-right:auto;" class="img-responsive center-block"> 
             </div>
                 <!-- <p>{{$news->descp}}</p> -->
 	           </div  >
@@ -24,14 +24,14 @@
               </div> -->
               
               <div style="margin-top:10px">&nbsp</div>
-              the advertisemnt area
-              <img src="{{asset('storage/news_images/xavi.png' )}}" alt ="adv area">
-              area closed
-              <div style="background-color:pink;">
+              <!-- the advertisemnt area -->
+              <img src="{{asset('storage/adv_images/'.$adAll->BannerNext() )}}" alt ="No advertisement placed here" class="img-responsive center-block"> 
+              <!-- area closed -->
+              <!-- <div style="background-color:pink;"> -->
                 
-                <h1>Next adverstiment is displayed here</h1>
+                <!-- <h1>Next adverstiment is displayed here</h1> -->
               
-            </div>
+            <!-- </div> -->
                 <div style="margin-bottom:10px;">&nbsp</div>
     @endif
   @endforeach
@@ -87,7 +87,8 @@
           <div class="fashion_technology_area">
 
             <div style="background-color:pink">
-            <h1>next advertisement to be displayed here</h1>
+              <img src="{{asset('storage/adv_images/aa.gif' )}}" alt ="adv area" class="img-responsive center-block">
+            <!-- <h1>next advertisement to be displayed here</h1> -->
           </div>
             <div class="fashion">
               <div class="single_post_content">
@@ -272,12 +273,15 @@
 
 
           <div class="single_sidebar wow fadeInDown">
-            <div style="background-color:pink">
-              <h1>next advertisement to be displayed here</h1>
+            <!-- <div style="background-color:pink"> -->
+            <div>
+              <!-- <h1>next advertisement to be displayed here</h1> -->
+              <img src="{{asset('storage/adv_images/right.gif' )}}" alt ="adv area" class="img-responsive center-block">
             </div>
 
-            <div class="sdfsdfdsllol"style="background-color:pink">
-              <h1>next advertisement to be displayed here</h1>
+            <div class="sdfsdfdsllol" style="background-color:pink;margin-top:10px">
+              <!-- <h1>next advertisement to be displayed here</h1> -->
+              <img src="{{asset('storage/adv_images/clearTv.gif' )}}" alt ="adv area" class="img-responsive center-block">
             </div>
 
 

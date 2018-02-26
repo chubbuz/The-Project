@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Todays;
 use App\News;
 use App\Classes\TodaysNews;
+use App\Classes\AdvToday;
+use App\Advertisement;
 
 class FrontController extends Controller
 {
@@ -28,9 +30,34 @@ class FrontController extends Controller
     			$newsArray[$i]=new TodaysNews($title,$des,$cat,$img,$id);
     			$i++;
     		}
+
+            $advAll = Advertisement::all();
+            $adAll = new AdvToday();
+            $adAll->init();
+            foreach($advAll as $ad){
+                   // echo $ad->image,$ad->location_id;
+                 $adAll->store($ad->image,$ad->location_id);
+                // echo $adAll->BannerNext();
+
+
+                // echo $ad->image;
+                // if($ad->loation_id==1) $adv[0]=$ad;
+                // else if($ad->location_id==2) $adv[1]=$ad;
+                // else if($ad->location_id==3) $bannerAd[$bCount++]=$ad;
+                // else if($ad->location_id==4) $rightAd[$rCount++]=$ad;
+            }
+           
+
+            // echo $bannerAd;
+
+            // print_r($adv);
+
+            // echo "".$advs;
     		echo"there are total ".$i." news today";
-    		return view('front.index')->with('newsArray',$newsArray);
+    		return view('front.index')->with('newsArray',$newsArray)->with('adAll',$adAll);
     }
+
+
 
     public function show($id){
         $newsArray = array();

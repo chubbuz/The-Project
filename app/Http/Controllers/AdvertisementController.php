@@ -52,7 +52,8 @@ class AdvertisementController extends Controller
       $adv->location_id=$request->position;
       $adv->save();
 
-      return redirect('/admin-adv')->with('success','advertisement has been uploaded');
+      $advs = Advertisement::all();
+      return redirect('/admin-adv')->with('success','advertisement has been uploaded')->with('advs',$advs);
 
     }
 
@@ -98,6 +99,10 @@ class AdvertisementController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $adv=Advertisement::find($id);
+        $adv->delete();
+        
+        $advs = Advertisement::all();
+        return view('admin.advertisement')->with('advs',$advs);
     }
 }

@@ -6,8 +6,8 @@
 		<!-- <img alt="image not found" src="{{asset('storage/news_images/xavi.png')}}" style="display:block;margin-left:auto;margin-right:auto;"> -->
 		
 		<h2>Current Advertisement</h2>
-
-		<div style="overflow-y:scroll;height:500px;background-color:teal"> 
+<!-- background-color:teal -->
+		<div style="overflow-y:scroll;height:500px;"> 
 			<table class="table table-striped table-hover">
 			<thead>
 				<tr>
@@ -30,7 +30,7 @@
 						 	<!-- {{$adv->image}} -->
 					</td>	
 					<td>
-						{!!Form::open()!!}
+						{!!Form::open(['action'=>['AdvertisementController@destroy',$adv->id],'method'=>'POST'])!!}
 						{{form::hidden('_method','DELETE')}}	
 						{{form::submit('Delete',['class'=>'btn btn-danger'])}}
 						{!! Form::close() !!}
