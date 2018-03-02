@@ -36,3 +36,5 @@ Route::get('admin-all','AdminController@showAll');
 Route::resource('today','TodaysController');
 Route::resource('admin-adv','AdvertisementController');
 Route::get('logout','Auth\LoginController@logout');
+
+

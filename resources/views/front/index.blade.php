@@ -25,7 +25,7 @@
               
               <div style="margin-top:10px">&nbsp</div>
               <!-- the advertisemnt area -->
-              <img src="{{asset('storage/adv_images/'.$adAll->BannerNext() )}}" alt ="No advertisement placed here" class="img-responsive center-block"> 
+              <img src="{{asset('storage/adv_images/'.$adAll->BannerNext() )}}" alt ="" class="img-responsive center-block"> 
               <!-- area closed -->
               <!-- <div style="background-color:pink;"> -->
                 
@@ -87,7 +87,7 @@
           <div class="fashion_technology_area">
 
             <div style="background-color:pink">
-              <img src="{{asset('storage/adv_images/aa.gif' )}}" alt ="adv area" class="img-responsive center-block">
+              <img src="{{asset('storage/adv_images/'.$adAll->BelowCategoryNext() )}}" alt ="" class="img-responsive center-block"> 
             <!-- <h1>next advertisement to be displayed here</h1> -->
           </div>
             <div class="fashion">
@@ -276,12 +276,12 @@
             <!-- <div style="background-color:pink"> -->
             <div>
               <!-- <h1>next advertisement to be displayed here</h1> -->
-              <img src="{{asset('storage/adv_images/right.gif' )}}" alt ="adv area" class="img-responsive center-block">
+              <img src="{{asset('storage/adv_images/'.$adAll->RightSideNext() )}}" alt ="" class="img-responsive center-block"> 
             </div>
 
             <div class="sdfsdfdsllol" style="background-color:pink;margin-top:10px">
               <!-- <h1>next advertisement to be displayed here</h1> -->
-              <img src="{{asset('storage/adv_images/clearTv.gif' )}}" alt ="adv area" class="img-responsive center-block">
+              <img src="{{asset('storage/adv_images/'.$adAll->RightSideNext() )}}" alt ="" class="img-responsive center-block"> 
             </div>
 
 
@@ -290,7 +290,7 @@
             <!-- folllwing line to be deleted -->
             <h2><span></span></h2>
 
-            <div class="sdfsdfdsllol"style="background-color:pink">
+           <!--  <div class="sdfsdfdsllol"style="background-color:pink">
               <h1>next advertisement to be displayed here</h1>
             </div>
 
@@ -300,7 +300,7 @@
 
             <div class="sdfsdfdsllol"style="background-color:pink">
               <h1>next advertisement to be displayed here</h1>
-            </div>
+            </div> -->
 
 
 
